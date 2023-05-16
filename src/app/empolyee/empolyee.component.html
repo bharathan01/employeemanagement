@@ -18,7 +18,11 @@
         <form class="d-flex " role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success log_btn" type="submit">Search</button>
-          <button class="btn btn-outline-success log_btn" type="submit" (click)="openloginForm()">Log In</button>
+          <button class="btn btn-outline-success log_btn" type="submit"[class.closeLogin]="closeLogIn" (click)="openloginForm()">Log In</button>
+          <div class="profile text-center" [class.profileName]="profileView">
+            <span class="fs-4 ms-3 me-3"><i class="fa-regular fa-user" style="color: #000000;"></i></span>
+          </div>
+          <span class="fs-5 ms-3 me-3" >{{userName}}</span>
         </form>
       </div>
     </div>
@@ -92,7 +96,7 @@
           <button type="button"  class="btn reg_btn mt-3 ms-3"  (click)="openRegForm('register')">REGISTER</button>
         </div>
         <div class="close_btn">
-          <a (click)="closeLoginForm()"><span>X</span></a>
+          <a (click)="close()"><span>X</span></a>
         </div>
         
       </div>

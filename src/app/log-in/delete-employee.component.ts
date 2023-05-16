@@ -32,9 +32,8 @@ export class DeleteEmployeeComponent {
   if(this.logInForm.valid){
    this.es.logInUser(this.logInForm.value).subscribe((data:any)=>{
     alert(data.message)
-    this.em.loginUserDetails = data
     this.logInForm.reset()
-    this.em.closeLoginForm()
+    this.em.closeLoginForm(data)
    })
   }
  }

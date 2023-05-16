@@ -27,10 +27,23 @@ export class EmpolyeeComponent {
   displayAlret:boolean =true
   logInFormOpen:boolean = true
   openLoginForm:any
-  loginUserDetails:any  
+  loginUserDetails:any
+  closeLogIn:boolean = false
+  profileView:boolean=true
+  userName:any
   
 
   ngOnInit():void{
+
+    if(this.loginUserDetails){
+      this.logInFormOpen =true 
+      
+    }
+    else{
+      this.logInFormOpen =false 
+      this.openLoginForm = DeleteEmployeeComponent
+    }
+     
         
    this.es.getEmployeeDetails().subscribe( (data:any) =>{
 
@@ -80,10 +93,17 @@ export class EmpolyeeComponent {
 
 
   }
-  closeLoginForm(){
-    this.logInFormOpen =true
-    console.log(this.loginUserDetails)  
+  closeLoginForm(loginDetails:any){
+    this.loginUserDetails =loginDetails
+    this.userName = this.loginUserDetails.data.name
+    this.closeLogIn=true
+    this.logInFormOpen =true 
+    this.profileView = false
   }
+  close(){
+    this.logInFormOpen =true 
+  }
+
  
 
 }

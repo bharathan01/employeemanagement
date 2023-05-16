@@ -19,14 +19,11 @@ export class AddEmployeeComponent {
 
   }
 
-   showValid:boolean = false
-   btnEnable:boolean = false
-
   employeeFrom  = this.fb.group({
     _id:[null],
     fullname:['' ,[Validators.required,Validators.pattern('[a-zA-z]+')]],
     position:['' ,[Validators.required,Validators.pattern('[0-9a-zA-z]+')]],
-    address:['' ,[Validators.required,Validators.pattern('[0-9a-zA-z]+')]],
+    address:['' ,[Validators.required,Validators.pattern('[0-9a-zA-z- _@,].+')]],
     salary:['' ,[Validators.required,Validators.pattern('[0-9]+')]]
 
   })
@@ -34,7 +31,6 @@ export class AddEmployeeComponent {
   addEmployee(){
    
     if(this.employeeFrom.valid){
-      this.btnEnable =true
       this.es.addAnEmployee(this.employeeFrom.value).subscribe((res:any) =>{
         alert(res.message)
         this.resetForm()
@@ -44,16 +40,10 @@ export class AddEmployeeComponent {
       })
       
     }
-    else(
-      this.showValid = true
-    )
-   
   }
 
   resetForm(){
     this.employeeFrom.reset()
-    this.btnEnable =false
-
   }
 
 

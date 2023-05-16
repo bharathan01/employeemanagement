@@ -53,7 +53,7 @@
                       class="fa-regular fa-pen-to-square edit_btn"></i></em></a></td>
               <td>
                 <!-- Button trigger modal -->
-                <button type="button" class="delete_btn" (click)="delete(i._id)" data-bs-toggle="modal"
+                <button type="button" class="delete_btn" (click)="delete(i._id,i.fullname)" data-bs-toggle="modal"
                   data-bs-target="#exampleModal">
                   <i class="fa-solid fa-trash delete_btn"></i>
                 </button>
@@ -64,7 +64,7 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-body">
-                        Are you sure want to delete employee '{{i.fullname}}'?
+                        Are you sure want to delete employee {{fullname}}?
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
@@ -86,10 +86,17 @@
 <div [class.open]="logInFormOpen">
   <section class="loginComponent">
     <div class="sub_login">
-      <div class="col text-center">
-        <button type="button" class="btn reg_btn mt-5" (click)="openRegForm('login')">LOG IN</button>
-        <button type="button"  class="btn reg_btn mt-5 ms-3"  (click)="openRegForm('register')">REGISTER</button>
+      <div class="login_head">
+        <div class="regLog_btn">
+          <button type="button" class="btn reg_btn mt-3" (click)="openRegForm('login')">LOG IN</button>
+          <button type="button"  class="btn reg_btn mt-3 ms-3"  (click)="openRegForm('register')">REGISTER</button>
+        </div>
+        <div class="close_btn">
+          <a (click)="closeLoginForm()"><span>X</span></a>
+        </div>
+        
       </div>
+      
       <ng-container *ngComponentOutlet="openLoginForm"></ng-container>
     </div>
   </section>

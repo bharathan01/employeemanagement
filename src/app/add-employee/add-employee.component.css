@@ -7,12 +7,12 @@
 .btn{
     width: 100px;
     height: 40px;
-    background-color: rgb(170, 178, 170);
+    background-color: rgb(20, 166, 20);
+    color:white;
 }
-.enable{
-    background-color: rgb(114, 202, 114);
-    color: white;
-}
-.submitform  {
+.form-control.ng-invalid.ng-touched{
     border-color: red;
-} 
+}
+.form-control.ng-valid.ng-touched{
+    border-color: green;
+}

@@ -35,6 +35,15 @@ export class EmployeeServiceService {
   return this.http.delete(this.baseURL+'/delete/'+empId)
  }
 
+ registerNewuser(newUserDetails:any){
+ 
+  return this.http.post(this.baseURL+'/register',newUserDetails)
+
+ }
+ logInUser(loginDetails:any){
+  return this.http.post(this.baseURL+'/login',loginDetails)
+ }
+
  
 
 

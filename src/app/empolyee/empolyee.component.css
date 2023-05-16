@@ -1,46 +1,55 @@
-header{
+header {
     width: 100%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.log_btn{
+
+.log_btn {
     width: 105px;
     height: 37px;
     margin: 5px;
     font-size: 14px;
 }
-.mainComponent{
+
+.mainComponent {
     width: 100%;
     height: 500px;
     position: relative;
     top: 0px;
 }
-.delete_btn{
+
+.delete_btn {
     color: black;
 
 }
-.delete_btn:hover{
+
+.delete_btn:hover {
     color: red;
     cursor: pointer;
 }
-.edit_btn{
+
+.edit_btn {
     color: black;
 
 }
-.edit_btn:hover{
-    color:rgb(100, 170, 100) ;
+
+.edit_btn:hover {
+    color: rgb(100, 170, 100);
     cursor: pointer;
 }
-.delete_btn{
+
+.delete_btn {
     border: none;
     background-color: transparent;
 }
-.display{
+
+.display {
     display: none;
 }
-.loginComponent{
+
+.loginComponent {
     width: 100%;
     height: 730px;
     display: flex;
@@ -50,37 +59,80 @@ header{
     top: 0px;
     background-color: #5855551e;
 }
-.sub_login{
+
+.sub_login {
     width: 40%;
-    height: 560px;
+    height: 580px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0px -4px 25px #585555;
     margin-top: 40px;
-   
-}
-.open{
-    display: none;
-   
+
 }
 
-.reg_btn{
+.open {
+    display: none;
+
+}
+
+.reg_btn {
     border-bottom: none;
     border-radius: 0px;
 }
-.reg_btn:hover{
+
+.reg_btn:hover {
     border-bottom: 2px solid rgb(45, 96, 45);
     border-radius: 0px;
 
 }
-.reg_btn:focus{
+
+.reg_btn:focus {
     border-bottom: 4px solid rgb(45, 96, 45);
     border-radius: 0px;
     color: rgb(28, 74, 28);
 
 }
-@media(max-width:800px){
-    .sub_login{
+
+.login_head {
+    display: flex;
+    align-items: center;
+}
+
+.regLog_btn {
+    width: 65%;
+    display: flex;
+    justify-content: end;
+
+}
+
+.close_btn {
+    width: 30%;
+    height: 30px;
+    display: flex;
+    justify-content: end;
+    margin-right: 14px;
+    font-size: 22px;
+}
+
+.close_btn a span {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.close_btn a span:hover {
+    background-color: rgb(189, 189, 189);
+    cursor: pointer;
+}
+
+@media(max-width:800px) {
+    .sub_login {
         width: 90%;
     }
 }

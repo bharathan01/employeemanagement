@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component,Injectable } from '@angular/core';
 import { EmployeeServiceService } from '../service/employee-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeleteEmployeeComponent } from '../log-in/delete-employee.component';
 import { RegisterComponent } from '../register/register.component';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-empolyee',
@@ -11,20 +15,23 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class EmpolyeeComponent {
 
-  constructor(private es:EmployeeServiceService,private at:ActivatedRoute, private rt:Router,private log:DeleteEmployeeComponent){
-
+  constructor(private es:EmployeeServiceService,
+    private at:ActivatedRoute, 
+    private rt:Router,
+    ){
   }
 
   employeeDetails:any 
-  empId:any  
+  empId:any 
+  fullname:any 
   displayAlret:boolean =true
   logInFormOpen:boolean = true
   openLoginForm:any
-  
+  loginUserDetails:any  
   
 
   ngOnInit():void{
-   
+        
    this.es.getEmployeeDetails().subscribe( (data:any) =>{
 
     this.employeeDetails = data 
@@ -38,25 +45,25 @@ export class EmpolyeeComponent {
      
 
   }
-  delete(emp:any){
+  delete(emp:any,fullname:any){
     this.empId = emp
+    this.fullname = fullname
 
   }
   deleteEmployee(){
     this.es.deleteEmp(this.empId).subscribe((data:any) => {
       if(data.statusCode = 200){
-        this.reload()
         this.displayAlret = false
-       
+      
+        this.es.getEmployeeDetails().subscribe((data:any) =>{
+          this.employeeDetails = data 
+        })
 
       }
     },data =>{
+      alert(data.message)
       
     })
-  }
-  reload(){
-    window.location.reload()
-    
   }
   openloginForm(){
     this.logInFormOpen =false
@@ -73,6 +80,10 @@ export class EmpolyeeComponent {
 
 
   }
-  
+  closeLoginForm(){
+    this.logInFormOpen =true
+    console.log(this.loginUserDetails)  
+  }
+ 
 
 }

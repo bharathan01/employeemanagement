@@ -24,18 +24,21 @@
             <div class="col-sm-12 mt-5 emp_form ">
                 <form [formGroup]="employeeFrom" class="w-50">
                     <label class="form-label" for="uname">Employee Name :</label>
-                    <input formControlName="fullname" [class.submitform]=" showValid"  class="form-control mt-2 " type="text" id="uname" placeholder="Name">
-                    <div class="text-danger" *ngIf="this.employeeFrom.get('fullname')?.errors && this.employeeFrom.get('fullname')?.touched">Name must needed</div>
+                    <input formControlName="fullname" class="form-control mt-2 " type="text" id="uname" placeholder="Name">
+                    <div class="text-danger" *ngIf="employeeFrom.get('fullname')?.invalid && employeeFrom.get('fullname')?.touched">Name must needed</div>
                     <label  class="form-label" for="Position">Position :</label>
-                    <input formControlName="position"  [class.submitform]=" showValid"  class="form-control mt-2" type="text" id="Position" placeholder="Position">
+                    <input formControlName="position"   class="form-control mt-2" type="text" id="Position" placeholder="Position">
                     <div class="text-danger" *ngIf="this.employeeFrom.get('position')?.errors && this.employeeFrom.get('position')?.touched">position requried!</div>
                     <label  class="form-label " for="Address">Address :</label>
-                    <input formControlName="address" [class.submitform]=" showValid" class="form-control mt-2" type="text" id="Address" placeholder="Address">
+                    <input formControlName="address"  class="form-control mt-2" type="text" id="Address" placeholder="Address">
                     <div class="text-danger" *ngIf="this.employeeFrom.get('address')?.errors && this.employeeFrom.get('address')?.touched">Address requried!</div>
                     <label  class="form-label" for="Salary">Salary</label>
-                    <input formControlName="salary" [class.submitform]=" showValid" class="form-control mt-2" type="number" id="Salary" placeholder="Salary">
+                    <input formControlName="salary"  class="form-control mt-2" type="number" id="Salary" placeholder="Salary">
                     <div  class="text-danger" *ngIf="this.employeeFrom.get('salary')?.errors && this.employeeFrom.get('salary')?.touched">salary requred!</div>
-                    <button class="btn mt-4" [class.enable]="btnEnable" type="submit" (click)="addEmployee()">Search</button>
+                    <div class="col text-center">
+                      <button class="btn mt-4" [disabled]="employeeFrom.invalid" type="submit" (click)="addEmployee()">Add employee</button>
+                    </div>
+                    
                 </form>
 
             </div>

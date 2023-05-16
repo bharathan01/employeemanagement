@@ -1,3 +1,4 @@
+
 section{
 
     width: 100%;
@@ -9,4 +10,10 @@ section{
 .loginform{
     display: grid;
     place-items: center;
+}
+.form-control.ng-invalid.ng-touched{
+    border-color: red;
+}
+.form-control.ng-valid.ng-touched{
+    border-color: rgb(53, 161, 53);
 }

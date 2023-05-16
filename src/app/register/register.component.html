@@ -2,22 +2,26 @@
     <div class="container mt-4">
         <div class="row loginform">
             <div class="col w-100 text-center text-success">
-                <span class="heading fs-1">
+                <span class="heading fs-2">
                     REGISTER
                 </span>
             </div>
             <div class="col w-75">
-                <form>
+                <form [formGroup]="regForm">
                     <label for="name" class="form-label">Name :</label>
-                    <input type="text" id="name" class="form-control" placeholder="Name">
+                    <input type="text" formControlName="name" id="name" class="form-control" placeholder="Name">
+                    <small class="text-danger" *ngIf="regForm.get('name').invalid && regForm.get('name').touched">Name is invalid!</small><br>
                     <label for="username" class="form-label">User Name :</label>
-                    <input type="text" id="name" class="form-control" placeholder="Name">
+                    <input type="text"formControlName="username"  id="name" class="form-control" placeholder="Name">
+                    <small class="text-danger" *ngIf="regForm.get('username').invalid && regForm.get('username').touched">username is invalid!</small><br>
                     <label for="email" class="form-label">Email :</label>
-                    <input type="text" id="email" class="form-control" placeholder="Email">
-                    <label for="password"class="form-label mt-2">Password:</label>
-                    <input type="password" id="password" placeholder="password"  class="form-control">
+                    <input type="email" formControlName="email"  id="email" class="form-control" placeholder="Email">
+                    <small class="text-danger" *ngIf="regForm.get('email').invalid && regForm.get('email').touched">email is invalid! </small><br>
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" formControlName="password" id="password" placeholder="password"  class="form-control">
+                    <small class="text-danger" *ngIf="regForm.get('password').invalid && regForm.get('password').touched">password is invalid!</small><br>
                     <div class="col text-center">
-                        <button type="submit"  class="bg-success btn mt-4 text-white">Log in </button>
+                        <button type="submit" [disabled]="regForm.invalid"  class="bg-success btn mt-2 text-white" (click)="registerUser()">Log in </button>
                     </div>
                     
                 </form>

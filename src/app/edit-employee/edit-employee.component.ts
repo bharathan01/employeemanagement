@@ -35,9 +35,9 @@ export class EditEmployeeComponent {
 
    
     this.employeeDataForm = this.fb.group({
-      fullname:['',[Validators.required,Validators.pattern('[a-zA-z _-]+')]],
-      position:['' ,[Validators.required,Validators.pattern('[0-9a-zA-z _-]]+')]],
-      address:['' ,[Validators.required,Validators.pattern('[0-9a-zA-z _-]]+')]],
+      fullname:['',[Validators.required,Validators.pattern('[a-zA-Z _-]+')]],
+      position:['' ,[Validators.required,Validators.pattern('[0-9a-zA-Z _-]+')]],
+      address:['' ,[Validators.required,Validators.pattern('[0-9a-zA-z- _@,].+')]],
       salary:['' ,[Validators.required,Validators.pattern('[0-9 _-]]+')]]    
    
     })

@@ -14,3 +14,9 @@ section{
   
  cursor: pointer;
 }
+.form-control.ng-invalid.ng-touched{
+    border-color: red;
+}
+.form-control.ng-valid.ng-touched{
+    border-color: green;
+}

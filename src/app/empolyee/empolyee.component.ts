@@ -31,20 +31,11 @@ export class EmpolyeeComponent {
   closeLogIn:boolean = false
   profileView:boolean=true
   userName:any
+  user:any
   
 
   ngOnInit():void{
-
-    if(this.loginUserDetails){
-      this.logInFormOpen =true 
       
-    }
-    else{
-      this.logInFormOpen =false 
-      this.openLoginForm = DeleteEmployeeComponent
-    }
-     
-        
    this.es.getEmployeeDetails().subscribe( (data:any) =>{
 
     this.employeeDetails = data 
@@ -54,7 +45,9 @@ export class EmpolyeeComponent {
       alert('somethig went wrong..')
     
     })
-    
+   
+  this. getdata()
+  
      
 
   }
@@ -93,15 +86,37 @@ export class EmpolyeeComponent {
 
 
   }
+
+
   closeLoginForm(loginDetails:any){
     this.loginUserDetails =loginDetails
-    this.userName = this.loginUserDetails.data.name
-    this.closeLogIn=true
-    this.logInFormOpen =true 
-    this.profileView = false
+    if(this.loginUserDetails){
+      localStorage.setItem("data",JSON.stringify(this.loginUserDetails.data))
+      window.location.reload()
+      
+    }
+    
+  }
+  getdata(){
+    if(localStorage.getItem("data")){
+      this.user = JSON.parse(localStorage.getItem("data") || "")
+      this.userName = this.user.name
+      this.closeLogIn=true
+      this.logInFormOpen =true 
+      this.profileView = false
+    }
+    else{
+      this.rt.navigateByUrl('#')
+    }
+   
+  }
+  logOut(){
+    localStorage.removeItem("data")
+    window.location.reload()
+    this.rt.navigateByUrl('')
   }
   close(){
-    this.logInFormOpen =true 
+    this.logInFormOpen = true 
   }
 
  

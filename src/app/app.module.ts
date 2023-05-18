@@ -11,6 +11,7 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './log-in/delete-employee.component';
 import { RegisterComponent } from './register/register.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FilterpipePipe } from './pipe/filterpipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
     AddEmployeeComponent,
     EditEmployeeComponent,
     DeleteEmployeeComponent,
-    RegisterComponent
+    RegisterComponent,
+    FilterpipePipe
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@
           </li>
         </ul>
         <form class="d-flex " role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Search" [(ngModel)]="searchId" aria-label="Search" name="search">
           <button class="btn btn-outline-success log_btn" type="submit">Search</button>
           <button class="btn btn-outline-success log_btn" type="submit"[class.closeLogin]="closeLogIn" (click)="openloginForm()">Log In</button>
           <div class="profile text-center" [class.profileName]="profileView">
@@ -49,7 +49,7 @@
               <th scope="col">Salar</th>
             </tr>
           </thead>
-          <tbody *ngFor="let i of employeeDetails">
+          <tbody *ngFor="let i of employeeDetails | filterpipe: searchId">
             <tr>
               <th scope="row">{{i._id}}</th>
               <td>{{i.fullname}}</td>

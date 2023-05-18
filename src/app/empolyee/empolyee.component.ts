@@ -32,6 +32,8 @@ export class EmpolyeeComponent {
   profileView:boolean=true
   userName:any
   user:any
+  searchId:any
+
   
 
   ngOnInit():void{
